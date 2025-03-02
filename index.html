@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ويكي التطوع لغزة - حملة مستمرون</title>
+  <link href="https://fonts.googleapis.com/earlyaccess/lateef.css" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Lateef', cursive;
+      background: linear-gradient(45deg, #f5f5f5, #e8f5e9);
+      min-height: 100vh;
+      color: #333;
+    }
+
+    /* Glass Header */
+    .glass-header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      padding: 1rem 2rem;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s ease;
+    }
+
+    /* Three Dot Menu */
+    .header-menu {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      padding: 10px;
+      transition: 0.3s;
+    }
+    .three-dots {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .dot {
+      width: 4px;
+      height: 4px;
+      background: #006400;
+      border-radius: 50%;
+    }
+    .menu-text {
+      color: #006400;
+      font-size: 1.2rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      white-space: nowrap;
+    }
+    .header-menu:hover .menu-text {
+      opacity: 1;
+    }
+
+    /* Logo Group */
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .center-logo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 2px solid rgba(0, 100, 0, 0.2);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .side-logo {
+      width: 60px;
+      height: 60px;
+      opacity: 0.9;
+      border-radius: 50%;
+      border: 2px solid rgba(0, 100, 0, 0.2);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .logo-group img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 5px;
+    }
+    .side-logo:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    /* Header Title */
+    .header-title {
+      font-size: 2rem;
+      color: #006400;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    /* Image Slider */
+    .slider-container {
+      margin-top: 140px;
+      padding: 0 2rem;
+    }
+    .glass-slider {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 8px 32px rgba(0, 50, 0, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .glass-slider:hover {
+      transform: scale(1.02);
+    }
+    .slider {
+      display: flex;
+      width: 500%;
+      height: 60vh;
+      animation: slide 30s infinite;
+    }
+    .slide {
+      width: 20%;
+      height: 100%;
+      position: relative;
+    }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .glass-caption {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      left: 20px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 1.5rem;
+      border-radius: 15px;
+      color: #006400;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    @keyframes slide {
+      0%, 15% { transform: translateX(0); }
+      20%, 35% { transform: translateX(-20%); }
+      40%, 55% { transform: translateX(-40%); }
+      60%, 75% { transform: translateX(-60%); }
+      80%, 95% { transform: translateX(-80%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Sidebar */
+    #sidebar {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+      padding: 1rem;
+      transition: right 0.3s ease;
+      z-index: 1100;
+    }
+    #sidebar.open {
+      right: 0;
+    }
+    .sidebar-button {
+      display: block;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #006400;
+      color: #fff;
+      text-align: center;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    /* Donation Section */
+    .donation-section {
+      margin: 2rem auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+    .donation-card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .donation-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 30px rgba(0,0,0,0.15);
+    }
+    .donation-icon img {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+    .donation-icon img:hover {
+      transform: scale(1.1);
+    }
+    .donation-text {
+      font-size: 1.8rem;
+      color: #006400;
+      font-weight: bold;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .glass-header { padding: 1rem; }
+      .center-logo { width: 80px; height: 80px; }
+      .side-logo { width: 45px; height: 45px; }
+      .header-title { font-size: 1.5rem; }
+      .slider { height: 50vh; }
+      .glass-caption { font-size: 1rem; padding: 1rem; bottom: 10px; }
+      .menu-text { display: none; }
+    }
+    @media (max-width: 480px) {
+      .logo-group { gap: 0.8rem; }
+      .center-logo { width: 70px; height: 70px; }
+      .side-logo { width: 40px; height: 40px; }
+      .header-title { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="glass-header">
+    <div class="header-menu" id="menuToggle">
+      <div class="three-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <span class="menu-text">حملة مستمرون</span>
+    </div>
+
+    <div class="logo-group">
+      <div class="side-logo">
+        <img src="partner-logo1.png" alt="الشعار الداعم الأول">
+      </div>
+      <div class="center-logo">
+        <img src="main-logo.png" alt="الشعار الرئيسي">
+      </div>
+      <div class="side-logo">
+        <img src="partner-logo2.png" alt="الشعار الداعم الثاني">
+      </div>
+    </div>
+
+    <h1 class="header-title">ويكي التطوع لغزة</h1>
+  </header>
+
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <a href="YOUR_PREVIOUS_CAMPAIGN_URL_HERE" class="sidebar-button">حملتنا السابقة</a>
+  </div>
+
+  <!-- Image Slider -->
+  <div class="slider-container">
+    <div class="glass-slider">
+      <div class="slider">
+        <div class="slide">
+          <img src="image1.jpg" alt="متطوعون في حملة تبرعات">
+          <div class="glass-caption">جهود التطوع في جمع التبرعات الطبية - 2023</div>
+        </div>
+        <div class="slide">
+          <img src="image2.jpg" alt="ورشات عمل التوعية">
+          <div class="glass-caption">ورشات العمل التوعوية للاجئين الفلسطينيين</div>
+        </div>
+        <div class="slide">
+          <img src="image3.jpg" alt="توزيع المساعدات">
+          <div class="glass-caption">عملية توزيع المساعدات الإنسانية في قطاع غزة</div>
+        </div>
+        <div class="slide">
+          <img src="image4.jpg" alt="الدعم النفسي">
+          <div class="glass-caption">برامج الدعم النفسي للأطفال المتضررين</div>
+        </div>
+        <div class="slide">
+          <img src="image5.jpg" alt="التطوع الطبي">
+          <div class="glass-caption">فرق التطوع الطبي في المستشفيات الميدانية</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Donation Section -->
+  <section class="donation-section">
+    <div class="donation-card">
+      <div class="donation-icon">
+        <img src="donation-icon.png" alt="تبرع للخير">
+      </div>
+      <p class="donation-text">تبرع للخير</p>
+    </div>
+  </section>
+
+  <script>
+    // Interactive Elements
+    const slider = document.querySelector('.slider');
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+
+    // Slider Controls: Pause on hover
+    slider.addEventListener('mouseenter', () => {
+      slider.style.animationPlayState = 'paused';
+    });
+    slider.addEventListener('mouseleave', () => {
+      slider.style.animationPlayState = 'running';
+    });
+
+    // Toggle Sidebar when header menu is clicked
+    menuToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation(); // Prevents the click from bubbling up
+      sidebar.classList.toggle('open');
+    });
+
+    // Close sidebar when clicking outside of it
+    document.addEventListener('click', (e) => {
+      if (sidebar.classList.contains('open') && 
+          !sidebar.contains(e.target) && 
+          !menuToggle.contains(e.target)) {
+        sidebar.classList.remove('open');
+      }
+    });
+
+    // Header Scroll Effect
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.glass-header');
+      header.style.background = window.scrollY > 50 
+        ? 'rgba(255, 255, 255, 0.98)'
+        : 'rgba(255, 255, 255, 0.95)';
+    });
+  </script>
+</body>
+</html>
