@@ -24,9 +24,9 @@
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(12px);
       position: fixed;
-      width: 100%;
       top: 0;
-      padding: 1rem 2rem;
+      width: 100%;
+      padding: 0.8rem 1rem;
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
       border-bottom: 1px solid rgba(255, 255, 255, 0.3);
       z-index: 1000;
@@ -34,6 +34,7 @@
       justify-content: space-between;
       align-items: center;
       transition: background 0.3s ease;
+      height: 70px;
     }
 
     /* Three Dot Menu */
@@ -74,22 +75,22 @@
     .logo-group {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1rem;
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
     }
     .center-logo {
-      width: 100px;
-      height: 100px;
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
       border: 2px solid rgba(0, 100, 0, 0.2);
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
     }
     .side-logo {
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       opacity: 0.9;
       border-radius: 50%;
       border: 2px solid rgba(0, 100, 0, 0.2);
@@ -109,15 +110,15 @@
 
     /* Header Title */
     .header-title {
-      font-size: 2rem;
+      font-size: 2.3rem;
       color: #006400;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
     }
 
     /* Image Slider */
     .slider-container {
-      margin-top: 140px;
-      padding: 0 2rem;
+      margin-top: 100px;
+      padding: 0 1rem;
     }
     .glass-slider {
       border-radius: 20px;
@@ -153,7 +154,7 @@
       left: 20px;
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(8px);
-      padding: 1.5rem;
+      padding: 1.2rem;
       border-radius: 15px;
       color: #006400;
       font-size: 1.2rem;
@@ -233,19 +234,20 @@
 
     /* Responsive Design */
     @media (max-width: 768px) {
-      .glass-header { padding: 1rem; }
-      .center-logo { width: 80px; height: 80px; }
-      .side-logo { width: 45px; height: 45px; }
-      .header-title { font-size: 1.5rem; }
+      .glass-header { padding: 0.8rem; height: 60px; }
+      .center-logo { width: 60px; height: 60px; }
+      .side-logo { width: 40px; height: 40px; }
+      .header-title { font-size: 1.8rem; }
       .slider { height: 50vh; }
       .glass-caption { font-size: 1rem; padding: 1rem; bottom: 10px; }
       .menu-text { display: none; }
+      .slider-container { margin-top: 80px; }
     }
     @media (max-width: 480px) {
       .logo-group { gap: 0.8rem; }
-      .center-logo { width: 70px; height: 70px; }
-      .side-logo { width: 40px; height: 40px; }
-      .header-title { font-size: 1.2rem; }
+      .center-logo { width: 50px; height: 50px; }
+      .side-logo { width: 35px; height: 35px; }
+      .header-title { font-size: 1.5rem; }
     }
   </style>
 </head>
@@ -260,7 +262,6 @@
       </div>
       <span class="menu-text">حملة مستمرون</span>
     </div>
-
     <div class="logo-group">
       <div class="side-logo">
         <img src="partner-logo1.png" alt="الشعار الداعم الأول">
@@ -272,7 +273,6 @@
         <img src="partner-logo2.png" alt="الشعار الداعم الثاني">
       </div>
     </div>
-
     <h1 class="header-title">ويكي التطوع لغزة</h1>
   </header>
 
@@ -336,7 +336,7 @@
     // Toggle Sidebar when header menu is clicked
     menuToggle.addEventListener('click', (e) => {
       e.preventDefault();
-      e.stopPropagation(); // Prevents the click from bubbling up
+      e.stopPropagation();
       sidebar.classList.toggle('open');
     });
 
