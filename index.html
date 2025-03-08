@@ -122,13 +122,14 @@
     }
 
     .header-title {
-      font-size: 2.3rem;
+      font-size: clamp(1.5rem, 4vw, 2.3rem);
+      width: max-content;
+      max-width: min(40vw, 300px);
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
       color: var(--primary-color);
       text-shadow: 2px 2px 4px rgba(13, 94, 47, 0.1);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 40vw;
     }
 
     .slider-container {
@@ -662,113 +663,115 @@
     <h1 class="header-title">غراس الخير</h1>
   </header>
 
-  <div id="sidebar">
-    <div class="sidebar-close" id="sidebarClose"><i class="fas fa-times"></i></div>
-    <div class="sidebar-header">
-      <h2>غراس الخير</h2>
+  <main>
+    <div id="sidebar">
+      <div class="sidebar-close" id="sidebarClose"><i class="fas fa-times"></i></div>
+      <div class="sidebar-header">
+        <h2>غراس الخير</h2>
+      </div>
+      <ul class="sidebar-menu">
+        <li><a href="#" class="sidebar-link" data-section="home"><i class="fas fa-home"></i> الصفحة الرئيسية</a></li>
+        <li><a href="#donate" class="sidebar-link" data-section="donate"><i class="fas fa-hand-holding-heart"></i> التبرع</a></li>
+        <li><a href="#about" class="sidebar-link" data-section="about"><i class="fas fa-info-circle"></i> عن حملتنا</a></li>
+        <li><a href="#" class="sidebar-link" data-section="join"><i class="fas fa-users"></i> انضم للفريق</a></li>
+      </ul>
     </div>
-    <ul class="sidebar-menu">
-      <li><a href="#" class="sidebar-link" data-section="home"><i class="fas fa-home"></i> الصفحة الرئيسية</a></li>
-      <li><a href="#donate" class="sidebar-link" data-section="donate"><i class="fas fa-hand-holding-heart"></i> التبرع</a></li>
-      <li><a href="#about" class="sidebar-link" data-section="about"><i class="fas fa-info-circle"></i> عن حملتنا</a></li>
-      <li><a href="#" class="sidebar-link" data-section="join"><i class="fas fa-users"></i> انضم للفريق</a></li>
-    </ul>
-  </div>
 
-  <div class="slider-container">
-    <div class="glass-slider">
-      <div class="slider">
-        <div class="slide">
-          <img src="/api/placeholder/800/500" alt="Slide 1">
-          <div class="glass-caption">حملة غراس الخير لدعم غزة</div>
+    <div class="slider-container">
+      <div class="glass-slider">
+        <div class="slider">
+          <div class="slide">
+            <img src="/api/placeholder/800/500" alt="Slide 1">
+            <div class="glass-caption">حملة غراس الخير لدعم غزة</div>
+          </div>
+          <div class="slide">
+            <img src="/api/placeholder/800/500" alt="Slide 2">
+            <div class="glass-caption">التطوع لرفع المعاناة</div>
+          </div>
+          <div class="slide">
+            <img src="/api/placeholder/800/500" alt="Slide 3">
+            <div class="glass-caption">مستقبل غزة على يديك</div>
+          </div>
         </div>
-        <div class="slide">
-          <img src="/api/placeholder/800/500" alt="Slide 2">
-          <div class="glass-caption">التطوع لرفع المعاناة</div>
+        <div class="slider-arrow left-arrow"><i class="fas fa-chevron-left"></i></div>
+        <div class="slider-arrow right-arrow"><i class="fas fa-chevron-right"></i></div>
+      </div>
+    </div>
+
+    <div class="donation-section" id="confirm-donation">
+      <h2>تأكيد التبرع</h2>
+      <p>يمكنك التبرع من خلال إحدى الطرق التالية:</p>
+      
+      <div class="donation-buttons">
+        <button class="confirm-button green-button" id="confirmBoxButton">
+          <i class="fas fa-check-circle"></i> أكد تبرعك عبر الصندوق
+        </button>
+        <button class="confirm-button white-button" id="superKeyButton">
+          <i class="fas fa-donate"></i> تبرع عبر منصة سوبركي
+        </button>
+      </div>
+    </div>
+
+    <div class="campaign-info-section" id="about">
+      <h2>حملتنا للتبرع</h2>
+      <p>بالتعاون مع رئاسة جامعة سامراء تم توزيع صناديق للتبرع في مختلف كليات وأقسام الجامعة تهدف الى التبرع الخيري لأهلنا في غزة الصائمة لتوفير ما يحتاجونه بين صعوبة البرد وشدة الصيام فكونوا سباقين للخير بذلك قال تعالى: (مَّثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ فِي كُلِّ سُنبُلَةٍ مِّائَةُ حَبَّةٍ ۗ وَاللَّهُ يُضَاعِفُ لِمَن يَشَاءُ ۗ وَاللَّهُ وَاسِعٌ عَلِيمٌ)</p>
+    </div>
+
+    <div class="donation-section" id="donate">
+      <h2>تبرع لدعم غزة</h2>
+      <p>كل تبرع مهما كان حجمه يمكن أن يحدث فرقًا كبيرًا في حياة المتضررين. ساهم معنا اليوم!</p>
+      
+      <div class="donation-options">
+        <div class="donation-option">
+          <i class="fas fa-utensils"></i>
+          <h3>إفطار الصائمين</h3>
+          <p>توزع وجبات إفطار في شهر رمضان المبارك لأهلنا في غزة</p>
         </div>
-        <div class="slide">
-          <img src="/api/placeholder/800/500" alt="Slide 3">
-          <div class="glass-caption">مستقبل غزة على يديك</div>
+        <div class="donation-option">
+          <i class="fas fa-hands-helping"></i>
+          <h3>العون والنصرة</h3>
+          <p>وقتك لتكن خير سندٍ لأهلنا وإخواننا في غزة العزة كن سباقاً للخير عزيزاً لإخوانك</p>
         </div>
       </div>
-      <div class="slider-arrow left-arrow"><i class="fas fa-chevron-left"></i></div>
-      <div class="slider-arrow right-arrow"><i class="fas fa-chevron-right"></i></div>
+      
+      <button class="donate-button" id="donateButton"><i class="fas fa-heart"></i> أكد تبرعك</button>
+      <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">جميع التبرعات تذهب مباشرة إلى مشاريع الإغاثة الإنسانية في غزة</p>
     </div>
-  </div>
 
-  <div class="donation-section" id="confirm-donation">
-    <h2>تأكيد التبرع</h2>
-    <p>يمكنك التبرع من خلال إحدى الطرق التالية:</p>
-    
-    <div class="donation-buttons">
-      <button class="confirm-button green-button" id="confirmBoxButton">
-        <i class="fas fa-check-circle"></i> أكد تبرعك عبر الصندوق
-      </button>
-      <button class="confirm-button white-button" id="superKeyButton">
-        <i class="fas fa-donate"></i> تبرع عبر منصة سوبركي
-      </button>
-    </div>
-  </div>
-
-  <div class="campaign-info-section" id="about">
-    <h2>حملتنا للتبرع</h2>
-    <p>بالتعاون مع رئاسة جامعة سامراء تم توزيع صناديق للتبرع في مختلف كليات وأقسام الجامعة تهدف الى التبرع الخيري لأهلنا في غزة الصائمة لتوفير ما يحتاجونه بين صعوبة البرد وشدة الصيام فكونوا سباقين للخير بذلك قال تعالى: (مَّثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ فِي كُلِّ سُنبُلَةٍ مِّائَةُ حَبَّةٍ ۗ وَاللَّهُ يُضَاعِفُ لِمَن يَشَاءُ ۗ وَاللَّهُ وَاسِعٌ عَلِيمٌ)</p>
-  </div>
-
-  <div class="donation-section" id="donate">
-    <h2>تبرع لدعم غزة</h2>
-    <p>كل تبرع مهما كان حجمه يمكن أن يحدث فرقًا كبيرًا في حياة المتضررين. ساهم معنا اليوم!</p>
-    
-    <div class="donation-options">
-      <div class="donation-option">
-        <i class="fas fa-utensils"></i>
-        <h3>إفطار الصائمين</h3>
-        <p>توزع وجبات إفطار في شهر رمضان المبارك لأهلنا في غزة</p>
-      </div>
-      <div class="donation-option">
-        <i class="fas fa-hands-helping"></i>
-        <h3>العون والنصرة</h3>
-        <p>وقتك لتكن خير سندٍ لأهلنا وإخواننا في غزة العزة كن سباقاً للخير عزيزاً لإخوانك</p>
+    <!-- Thank You Modal -->
+    <div id="thankYouModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <i class="fas fa-heart heart-icon"></i>
+        <h2 class="thank-you-text">شكراً لتبرعك</h2>
+        <p>جزاكم الله خيراً على دعمكم لإخواننا في غزة</p>
       </div>
     </div>
-    
-    <button class="donate-button" id="donateButton"><i class="fas fa-heart"></i> أكد تبرعك</button>
-    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">جميع التبرعات تذهب مباشرة إلى مشاريع الإغاثة الإنسانية في غزة</p>
-  </div>
 
-  <!-- Thank You Modal -->
-  <div id="thankYouModal" class="modal">
-    <div class="modal-content">
-      <span class="close-modal">&times;</span>
-      <i class="fas fa-heart heart-icon"></i>
-      <h2 class="thank-you-text">شكراً لتبرعك</h2>
-      <p>جزاكم الله خيراً على دعمكم لإخواننا في غزة</p>
-    </div>
-  </div>
-
-  <!-- Verification Thank You Modal -->
-  <div id="verificationModal" class="modal">
-    <div class="modal-content">
-      <span class="close-modal">&times;</span>
-      <i class="fas fa-check-circle verification-icon"></i>
-      <h2 class="thank-you-text">تم تأكيد تبرعك</h2>
-      <p>شكراً لمساهمتك في حملة غراس الخير لدعم غزة</p>
-    </div>
-  </div>
-
-  <!-- QR Code Modal -->
-  <div id="qrModal" class="modal">
-    <div class="modal-content">
-      <span class="close-modal">&times;</span>
-      <h2 class="qr-title">تبرع عبر المنصة عن طريق فحص الـ QR</h2>
-      <div class="qr-container">
-        <img id="qrImage" src="/api/placeholder/512/512" alt="QR Code" width="512" height="512">
+    <!-- Verification Thank You Modal -->
+    <div id="verificationModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <i class="fas fa-check-circle verification-icon"></i>
+        <h2 class="thank-you-text">تم تأكيد تبرعك</h2>
+        <p>شكراً لمساهمتك في حملة غراس الخير لدعم غزة</p>
       </div>
-      <p class="account-number-text">أو عن طريق نسخ رقم حساب كي: <span id="accountNumber" class="copyable">5692905572</span></p>
-      <span id="copyNotification" class="copy-notification">تم النسخ إلى الحافظة</span>
     </div>
-  </div>
 
+    <!-- QR Code Modal -->
+    <div id="qrModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2 class="qr-title">تبرع عبر المنصة عن طريق فحص الـ QR</h2>
+        <div class="qr-container">
+          <img id="qrImage" src="/api/placeholder/512/512" alt="QR Code" width="512" height="512">
+        </div>
+        <p class="account-number-text">أو عن طريق نسخ رقم حساب كي: <span id="accountNumber" class="copyable">5692905572</span></p>
+        <span id="copyNotification" class="copy-notification">تم النسخ إلى الحافظة</span>
+      </div>
+    </div>
+  </main>
+  
   <footer>
     <div class="footer-content">
       <h3>حملة التبرع لغزة</h3>
@@ -785,116 +788,77 @@
   </footer>
 
   <script>
-    // Toggle Sidebar Menu
+    /* Sidebar Toggle */
     const menuToggle = document.getElementById('menuToggle');
-    const sidebarClose = document.getElementById('sidebarClose');
     const sidebar = document.getElementById('sidebar');
+    const sidebarClose = document.getElementById('sidebarClose');
     
-    menuToggle.addEventListener('click', () => {
-      sidebar.classList.add('open');
-    });
-    
-    sidebarClose.addEventListener('click', () => {
-      sidebar.classList.remove('open');
-    });
-
-    // Close sidebar when clicking outside
+    menuToggle.addEventListener('click', () => sidebar.classList.add('open'));
+    sidebarClose.addEventListener('click', () => sidebar.classList.remove('open'));
     document.addEventListener('click', (e) => {
-      if (!sidebar.contains(e.target) && e.target !== menuToggle && !menuToggle.contains(e.target)) {
+      if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
         sidebar.classList.remove('open');
       }
     });
 
-    // Slider functionality
+    /* Slider Functionality */
     const slides = document.querySelectorAll('.slide');
     let currentSlide = 0;
-
-    // Show initial slide
     function showSlide(index) {
-      slides.forEach(slide => {
-        slide.style.display = 'none';
-      });
+      slides.forEach(slide => slide.style.display = 'none');
       slides[index].style.display = 'block';
     }
-
-    // Show first slide initially
     showSlide(currentSlide);
-
-    // Next slide
     document.querySelector('.right-arrow').addEventListener('click', () => {
       currentSlide = (currentSlide + 1) % slides.length;
       showSlide(currentSlide);
     });
-
-    // Previous slide
     document.querySelector('.left-arrow').addEventListener('click', () => {
       currentSlide = (currentSlide - 1 + slides.length) % slides.length;
       showSlide(currentSlide);
     });
-
-    // Auto slide change
     setInterval(() => {
       currentSlide = (currentSlide + 1) % slides.length;
       showSlide(currentSlide);
     }, 5000);
 
-    // Modal functionality
-    const modal = document.getElementById('thankYouModal');
-    const donateBtn = document.getElementById('donateButton');
-    const closeModal = document.querySelector('.close-modal');
-
-    donateBtn.addEventListener('click', () => {
-      modal.style.display = 'flex';
+    /* Unified Modal Functionality */
+    const openModal = (id) => { document.getElementById(id).style.display = 'flex'; };
+    
+    document.getElementById('donateButton').addEventListener('click', () => {
+      openModal('thankYouModal');
     });
-
-    closeModal.addEventListener('click', () => {
-      modal.style.display = 'none';
+    document.getElementById('confirmBoxButton').addEventListener('click', () => {
+      openModal('verificationModal');
     });
-
-    // Close modal when clicking outside of it
-    window.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.style.display = 'none';
-      }
+    document.getElementById('superKeyButton').addEventListener('click', () => {
+      openModal('qrModal');
     });
-
-    // New modals functionality
-    const verificationModal = document.getElementById('verificationModal');
-    const qrModal = document.getElementById('qrModal');
-    const confirmBoxBtn = document.getElementById('confirmBoxButton');
-    const superKeyBtn = document.getElementById('superKeyButton');
-    const closeButtons = document.querySelectorAll('.close-modal');
-    const accountNumber = document.getElementById('accountNumber');
-    const copyNotification = document.getElementById('copyNotification');
-
-    confirmBoxBtn.addEventListener('click', () => {
-      verificationModal.style.display = 'flex';
-    });
-
-    superKeyBtn.addEventListener('click', () => {
-      qrModal.style.display = 'flex';
-    });
-
-    closeButtons.forEach(btn => {
-      btn.addEventListener('click', function() {
-        this.closest('.modal').style.display = 'none';
+    
+    // Attach close events to all modals (for their close icons)
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.querySelectorAll('.close-modal').forEach(btn => {
+        btn.addEventListener('click', () => modal.style.display = 'none');
       });
     });
-
-    // Close all modals when clicking outside
+    
+    // Close any open modal when clicking outside its content
     window.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.style.display = 'none';
-      }
-      if (e.target === verificationModal) {
-        verificationModal.style.display = 'none';
-      }
-      if (e.target === qrModal) {
-        qrModal.style.display = 'none';
+      document.querySelectorAll('.modal').forEach(modal => {
+        if (e.target === modal) { modal.style.display = 'none'; }
+      });
+    });
+    
+    // Close all modals when pressing the Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal').forEach(modal => modal.style.display = 'none');
       }
     });
-
-    // Copy account number functionality
+    
+    /* Copy Account Number with Visual Feedback */
+    const accountNumber = document.getElementById('accountNumber');
+    const copyNotification = document.getElementById('copyNotification');
     accountNumber.addEventListener('click', function() {
       const text = this.textContent;
       navigator.clipboard.writeText(text)
@@ -902,7 +866,6 @@
           copyNotification.style.display = 'inline-block';
           copyNotification.textContent = 'تم النسخ إلى الحافظة';
           this.style.backgroundColor = '#e8f5e9';
-          
           setTimeout(() => {
             copyNotification.style.display = 'none';
             this.style.backgroundColor = '#f8f9fa';
@@ -911,14 +874,11 @@
         .catch(() => {
           copyNotification.style.display = 'inline-block';
           copyNotification.textContent = 'فشل النسخ، حاول مرة أخرى';
-          
-          setTimeout(() => {
-            copyNotification.style.display = 'none';
-          }, 2000);
+          setTimeout(() => { copyNotification.style.display = 'none'; }, 2000);
         });
     });
 
-    // Enhanced sidebar behavior for better navigation
+    /* Enhanced Sidebar In-Page Navigation */
     document.querySelectorAll('.sidebar-menu a').forEach(link => {
       link.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
@@ -935,63 +895,6 @@
         }
       });
     });
-
-    // Close modals with Escape key
-    document.addEventListener('keydown', function(e) {
-      if(e.key === 'Escape') {
-        modal.style.display = 'none';
-        verificationModal.style.display = 'none';
-        qrModal.style.display = 'none';
-      }
-    });
-
-    // Improved modal functionality
-    const verificationModalNew = document.getElementById('verificationModal');
-    const qrModalNew = document.getElementById('qrModal');
-    const confirmBoxBtnNew = document.getElementById('confirmBoxButton');
-    const superKeyBtnNew = document.getElementById('superKeyButton');
-    const closeButtonsNew = document.querySelectorAll('.close-modal');
-    const accountNumberNew = document.getElementById('accountNumber');
-    const copyNotificationNew = document.getElementById('copyNotification');
-
-    confirmBoxBtnNew.addEventListener('click', () => {
-      verificationModalNew.style.display = 'flex';
-    });
-
-    superKeyBtnNew.addEventListener('click', () => {
-      qrModalNew.style.display = 'flex';
-    });
-
-    closeButtonsNew.forEach(btn => {
-      btn.addEventListener('click', function() {
-        this.closest('.modal').style.display = 'none';
-      });
-    });
-
-    // Enhanced copy functionality with visual feedback
-    accountNumberNew.addEventListener('click', function() {
-      const text = this.textContent;
-      navigator.clipboard.writeText(text)
-        .then(() => {
-          copyNotificationNew.style.display = 'inline-block';
-          copyNotificationNew.textContent = 'تم النسخ إلى الحافظة';
-          this.style.backgroundColor = '#e8f5e9';
-          
-          setTimeout(() => {
-            copyNotificationNew.style.display = 'none';
-            this.style.backgroundColor = '#f8f9fa';
-          }, 2000);
-        })
-        .catch(() => {
-          copyNotificationNew.style.display = 'inline-block';
-          copyNotificationNew.textContent = 'فشل النسخ، حاول مرة أخرى';
-          
-          setTimeout(() => {
-            copyNotificationNew.style.display = 'none';
-          }, 2000);
-        });
-    });
   </script>
-
 </body>
 </html>
